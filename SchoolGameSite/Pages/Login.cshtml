@@ -1,0 +1,39 @@
+@page
+@model SchoolGameSite.Pages.Login
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Login</title>
+</head>
+<body>
+<div class="text-center">    
+    <h1>Вход</h1>
+    @{ if (Request.Method == "POST")
+            {
+                <hr/>
+                <div class="alert-danger">
+                    @Model.LoginErrorMessage
+                </div>
+                <br/>
+            }}
+    <form method="post" id="login_form" name="login_form">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" name="username" required minlength="1" id="username"
+                           placeholder="Имя пользователя"/>
+        </div>
+        <div class="input-group mb-3">
+            <input type="password" class="form-control" name="password" required minlength="8" id="password"
+                   placeholder="Пароль"/>
+        </div>
+        <input type="submit" class="btn btn-primary" id="submit" name="submit" value="Login"/>
+    </form>
+</div>
+</body>
+</html>
